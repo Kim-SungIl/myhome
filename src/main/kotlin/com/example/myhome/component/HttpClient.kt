@@ -19,6 +19,7 @@ class HttpClient (val restTemplate: RestTemplate){
         val response = restTemplate.getForObject(uri, String::class.java)
 
         // response 처리
+        // 이거를 ArrayList<House>로 변환해야함
         return response ?: "Error!!!!!"
     }
 }
