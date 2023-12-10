@@ -15,20 +15,24 @@ class MyHouseService(private val httpClient: HttpClient) {
     @Value("\${naver.land.url}")
     private lateinit var naverLandUrl: String
 
-    // TODO: parameter 다음것들 받아서 변경해야함
-    /*
-    parameters.rentPriceMin = "50000"
-    parameters.rentPriceMax = "800000000"
-    parameters.priceMin = "80000"
-    parameters.priceMax = "150000"
-    parameters.areaMax = "700000000"
-    parameters.leftLon = "126.9881899"
-    parameters.rightLon = "127.2242388"
-    parameters.topLat = "37.4612162"
-    parameters.bottomLat = "37.297588"
-     */
+    private var searchParameters: SearchParameters = SearchParameters()
+
+    fun updateSearchParameters(
+        priceMin: Long?,
+        priceMax: Long?,
+        areaMin: Int?,
+        areaMax: Int?
+        // 다른 필드도 필요에 따라 추가
+    ) {
+        priceMax?.let { searchParameters.priceMax = it }
+        priceMin?.let { searchParameters.priceMin = it }
+        areaMax?.let { searchParameters.areaMax = it }
+        areaMin?.let { searchParameters.areaMin = it }
+
+    }
+
     fun findHouses(): List<House> {
-        val parameters = SearchParameters().toMap()
+        val parameters = searchParameters.toMap()
 
         val apiResponse = httpClient.callExternalGet(naverLandUrl, parameters)
         val gson = Gson()

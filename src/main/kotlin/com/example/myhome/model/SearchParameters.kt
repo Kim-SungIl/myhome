@@ -11,29 +11,29 @@ data class SearchParameters(
     val fakeComplexMarker: String = "",
     val realEstateType: String = "APT:ABYG:JGC:PRE",
     val tradeType: String = "A1",
-    var rentPriceMin: String = "0",
-    var rentPriceMax: String = "900000000",
-    var priceMin: String = "100000",
-    var priceMax: String = "120000",
-    val areaMin: String = "0",
-    var areaMax: String = "900000000",
+    val rentPriceMin: Long = 0,
+    val rentPriceMax: Long = 900000000,
+    var priceMin: Long = 80000,
+    var priceMax: Long = 140000,
+    var areaMin: Int = 99,
+    var areaMax: Int = 132,
     val oldBuildYears: String = "",
     val recentlyBuildYears: String = "",
     val minHouseHoldCount: String = "",
     val maxHouseHoldCount: String = "",
-    val showArticle: String = "false",
-    val sameAddressGroup: String = "false",
+    val showArticle: Boolean = false,
+    val sameAddressGroup: Boolean = false,
     val minMaintenanceCost: String = "",
     val maxMaintenanceCost: String = "",
     val directions: String = "",
-    var leftLon: String = "127.0881899",
-    var rightLon: String = "127.1242388",
-    var topLat: String = "37.3612162",
-    var bottomLat: String = "37.347588",
-    val isPresale: String = "true"
+    val leftLon: String = "127.0881899",
+    val rightLon: String = "127.1242388",
+    val topLat: String = "37.3612162",
+    val bottomLat: String = "37.347588",
+    val isPresale: Boolean = true
 )
 
-fun SearchParameters.toMap(): Map<String, String> {
+fun SearchParameters.toMap(): Map<String, Any> {
     return mapOf(
         "cortarNo" to cortarNo,
         "zoom" to zoom,
