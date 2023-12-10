@@ -26,10 +26,10 @@ data class SearchParameters(
     val minMaintenanceCost: String = "",
     val maxMaintenanceCost: String = "",
     val directions: String = "",
-    val leftLon: String = "127.0881899",
-    val rightLon: String = "127.1242388",
-    val topLat: String = "37.3612162",
-    val bottomLat: String = "37.347588",
+    val leftLon: String = "127.091919",
+    val rightLon: String = "127.1640167",
+    val topLat: String = "37.3734932",
+    val bottomLat: String = "37.3462386",
     val isPresale: Boolean = true
 )
 
