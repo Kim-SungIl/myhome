@@ -14,10 +14,10 @@ class MyHouseController(private val myHouseService: MyHouseService) {
      */
     @PostMapping("/updateParameters")
     fun updateSearchParameters(
-        @RequestParam(required = false, defaultValue = "80000") priceMin: Long?,
-        @RequestParam(required = false, defaultValue = "140000") priceMax: Long?,
-        @RequestParam(required = false, defaultValue = "99") areaMin: Int?,
-        @RequestParam(required = false, defaultValue = "132") areaMax: Int?
+        @RequestParam(required = false) priceMin: Long?,
+        @RequestParam(required = false) priceMax: Long?,
+        @RequestParam(required = false) areaMin: Int?,
+        @RequestParam(required = false) areaMax: Int?
         // 다른 필드도 필요에 따라 추가
     ): ResponseEntity<String> {
         myHouseService.updateSearchParameters(priceMin, priceMax, areaMin, areaMax)
